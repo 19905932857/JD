@@ -1,0 +1,60 @@
+body{
+    margin: 0;
+}
+/* 头部 */
+header{
+    width: 100%;
+    height: 100px;
+    box-shadow: 0 5px 10px gainsboro;
+}
+section{
+    width: 1210px;
+    height: 100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+/* logo商标 */
+#logo{
+    width: 300px;
+    margin-top: 24px;
+}
+a{
+    text-decoration: none;
+    color: red;
+}
+.go-login{
+    line-height: 150px;
+}
+/* 欢迎注册 */
+.registertext{
+    font-size: 30px;
+}
+/* 页脚 */
+footer{
+    width: 1210px;
+    margin: 0 auto;
+}
+footer ul{
+    margin: 30px 0;
+    padding: 0;
+    list-style: none;
+    /* 开启弹性布局 */
+    display: flex;
+    justify-content: center;
+}
+footer ul li{
+    border-right: 1px solid gainsboro;
+}
+footer ul li:last-of-type{
+    border: none;
+}
+footer ul li a{
+    color: #999;
+    margin: 0 10px;
+}
+footer address{
+    text-align: center;
+    color: #999;
+    margin: 10px;
+}
