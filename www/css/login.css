@@ -1,0 +1,141 @@
+body{
+    margin: 0;
+}
+header{
+    width: 100%;
+    height: 100px;
+}
+#logo{
+    width: 170px;
+    height: 60px;
+    position: relative;
+    top: 20px;
+    left: 100px;
+}
+.logintext{
+    font-size: 30px;
+    position: relative;
+    top: -45px;
+    left: 200px;
+}
+.login-bamer{
+    width: 100%;
+    height: 475px;
+    background-color: brown;
+}
+.login-advertising{
+    width: 990px;
+    height: 475px;
+    background-image: url(../京东-欢迎登录_files/a33369e6f48640eb.jpg);
+    margin: 0 auto;
+}
+.login-form{
+    width: 364px;
+    height: 437px;
+    background-color: white;
+    position: relative;
+    top: 10px;
+    right: -625px;
+}
+.login-tab{
+    width: 173px;
+    height: 55px;
+    text-align: center;
+    line-height: 55px;
+    border-bottom: 1px solid gainsboro;
+    padding: 0 10px;
+    background: #fff;
+    /* display: block; */
+}
+.login-bamer .login-advertising .login-form .login-tab a{
+    font-size: 18px;
+    color: black;
+}
+a{
+    text-decoration: none;
+}
+.login-bamer .login-advertising .login-form .login-tab .checked{
+    color: brown;
+}
+.login-tab-left{
+    border-right: 1px solid gainsboro;
+}
+#header{
+    width: 100%;
+    height: 55px;
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    left: 0px;
+}
+#form{
+    width: 310px;
+    height: 250px;
+    position: relative;
+    left: 30px;
+    top: 0px;
+}
+#form form input{
+    width: 300px;
+    height: 50px;
+    margin-top: 30px;
+}
+#form form button{
+    width: 100%;
+    height: 35px;
+    border: none;
+    background-color: red;
+    margin-top: 60px;
+    font-size: 25px;
+    color: white;
+}
+#footer{
+    width: 365px;
+    height: 50px;
+    position: relative;
+    bottom: -83px;
+}
+.go-register-img{
+    width: 20px;
+    height: 20px;
+    background-image: url(../京东-欢迎登录_files/pwd-icons-new.png);
+    background-position: -100px -72px;
+    position: relative;
+    top: -20px;
+}
+#footer a{
+    width: 100px;
+    height: 20px;
+    float: right;
+    text-align: center;
+}
+/* 页脚 */
+footer{
+    width: 1210px;
+    margin: 0 auto;
+    border-top: 1px solid gainsboro;
+
+}
+footer ul{
+    margin: 30px 0;
+    padding: 0;
+    list-style: none;
+    /* 开启弹性布局 */
+    display: flex;
+    justify-content: center;
+}
+footer ul li{
+    border-right: 1px solid gainsboro;
+}
+footer ul li:last-of-type{
+    border: none;
+}
+footer ul li a{
+    color: #999;
+    margin: 0 10px;
+}
+footer address{
+    text-align: center;
+    color: #999;
+    margin: 10px;
+}

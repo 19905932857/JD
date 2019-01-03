@@ -1,0 +1,161 @@
+body{
+    margin: 0;
+}
+/* 注册表 */
+#register-form{
+    width: 100%;
+    height: 407px;
+    /* background-color: blue; */
+    margin-top: 100px;
+}
+/* 注册流程123步 */
+#flow-path{
+    width: 400px;
+    height: 30px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+/* 注册的form表单 */
+#register{
+    width: 400px;
+    height: 300px;
+    margin: 0 auto;
+}
+/* 手机号码 */
+.cell-phone{
+    width: 290px;
+    height: 52px;
+    border: none;
+    border: 1px solid gainsboro;
+    /* position: absolute; */
+    /* right: 500px; */
+    float: right;
+}
+/* 验证码 */
+.verification{
+    border: none;
+    width: 400px;
+    height: 54px;
+    border: 1px solid gainsboro;
+    background-color: white;
+}
+/* 提交 */
+.put-in{
+    border: none;
+    width: 400px;
+    height: 54px;
+    background-color: red;
+}
+/* input和按钮的上外边距 */
+.margin-top{
+    margin-top: 70px;
+}
+/* 企业和国际 */
+.enterprise-international{
+    position: relative;
+    width: 400px;
+    height: 50px;
+    margin: 0 auto;
+    text-align: center;
+    line-height:50px; 
+    display: flex;
+    /* justify-content: space-between; */ 
+}
+.enterprise-international a:nth-of-type(2){
+    position: absolute;
+    right: 0;
+   
+}
+/* 企业前面的图标 */
+.enterprise-international .right{
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    background-image: url(../京东-欢迎登录_files/reg-icon.png);
+    background-position:-37px -158px;
+    position: absolute;
+    right: 85px;
+}
+/* 国际前面的图标 */
+.enterprise-international .left{
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    background-image: url(../京东-欢迎登录_files/reg-icon.png);
+    background-position:2px -158px;
+    
+}
+/* 步骤一 */
+.step-one{
+    width: 25px;
+    height: 25px;
+    color: white;
+    text-align: center;
+    line-height: 25px;
+    background-image:url(../京东-欢迎登录_files/reg-icon.png);
+    background-position: 1px -199px; 
+}
+
+.next-step{
+    width: 124px;
+    height: 10px;
+    margin: 5px 5px 0 5px;
+    background-image:url(../京东-欢迎登录_files/reg-icon.png);
+    background-position: 0 -99px; 
+}
+/* 步骤二 */
+.step-tow{
+    width: 25px;
+    height: 25px;
+    color: gainsboro;
+    text-align: center;
+    line-height: 25px;
+    background-image:url(../京东-欢迎登录_files/reg-icon.png);
+    background-position: -44px -199px; 
+}
+/* 步骤三 */
+.step-three{
+    width: 25px;
+    height: 25px;
+    color: gainsboro;
+    text-align: center;
+    line-height: 25px;
+    background-image:url(../京东-欢迎登录_files/reg-icon.png);
+    background-position: -44px -199px; 
+}
+/* 步骤说明容器 */
+#flow-path-text{
+    width: 450px;
+    height: 30px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+/* 步骤说明 */
+.step-one-text,.step-tow-text,.step-three-text{
+    color: yellowgreen;
+    font-size: 15px;
+    margin: 0 10px;
+}
+/* 国家选择 */
+#country{
+    width: 105px;
+    height: 54px;
+    text-align: center;
+    line-height: 52px;
+    border: 1px solid gainsboro;
+    position: relative;
+    top: 55.9px;
+}
+/* 获取验证码 */
+.get-code{
+    width: 100px;
+    height: 53.5px;
+    border: none;
+    position: relative;
+    right: -150px;
+    top: -82.5px;
+    background-color: white;
+    border: 1px solid gainsboro;
+}

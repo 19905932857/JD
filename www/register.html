@@ -5,11 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 重复的步骤样式 -->
     <link rel="stylesheet" href="./css/registerAll.css">
-    <link rel="stylesheet" href="./register.css">
+    <link rel="stylesheet" href="./css/register.css">
+    <link rel="stylesheet" href="./css/slide_code.css">
+    <link rel="stylesheet" href="./css/register2.css">
     <title>个人注册</title>
 </head>
+
 <body>
+    <!-- 头部 -->
     <header>
         <section>
             <div id="logo">
@@ -18,10 +23,11 @@
                 </a>
                 <span class="registertext">欢迎注册</span>
             </div>
-            <div class="go-login"><span class="Account">已有账号?</span><a href="login.html"><span>去登入&gt;</span></a></div>
+            <div class="go-login"><span class="Account">已有账号? </span><a href="login.html"><span> 去登入&gt;</span></a></div>
         </section>
     </header>
-    <main>
+    <!-- 注册的第一部分 -->
+    <main id="part-one">
         <div id="register-form">
             <div id="flow-path">
                 <div class="step-one">1</div>
@@ -35,10 +41,10 @@
                 <span class="step-tow-text">填写账号信息</span>
                 <span class="step-three-text">注册成功</span>
             </div>
-            <form id="register" action="" method="post">
+            <form id="register" action="/register" method="get">
                 <div id="country">中国 0086</div>
-                <input class="margin-   top cell-phone" type="text" placeholder="   建议使用常用手机号">
-                <button class="margin-top verification" type="button">点击按钮进行验证</button>
+                <input class="cell-phone" type="text" name="tel" placeholder="   建议使用常用手机号" required >
+                <div class="margin-top code-btn top" type="button">点击按钮进行验证</div>
                 <button class="margin-top put-in" type="submit">下一步</button>
             </form>
             <div class="enterprise-international">
@@ -47,6 +53,45 @@
             </div>
         </div>
     </main>
+    <!-- 注册的第二部分 -->
+    <main id="part-two">
+        <div id="register-form-two">
+            <div id="flow-path">
+                <div class="step-one1">1</div>
+                <div class="next-step2"></div>
+                <div class="step-tow2">2</div>
+                <div class="next-step-two1 next-step-tow2"></div>
+                <div class="step-three3">3</div>
+            </div>
+            <div id="flow-path-text">
+                <span class="step-one-text">验证手机号</span>
+                <span class="step-tow-text">填写账号信息</span>
+                <span class="step-three-text">注册成功</span>
+            </div>
+            <form method="post" action="" class="register-form">
+                <div class="label-input">
+                    <label for="tel">&#x3000;用户名<input type="text" id="tel" name="user" placeholder="您的账户名和登入名" required pattern="(^1[1234567890]\d{9}$)|(^[a-zA-Z_\u4E00-\u9FA5][a-zA-Z_0-9\u4E00-\u9FA5]{5,15}$)"></label>
+                </div>
+                <div class="label-input">
+                    <label for="tel-2">&#x3000;设置密码</label><input type="password" id="tel-2" name="tel-2" placeholder="建议使用两种或两种以上字符组合" required pattern="^\w{6,16}$">
+                </div>
+                <div class="label-input">
+                    <label for="tel-3">&#x3000;确认密码</label><input type="password" id="tel-3" name="tel-3" placeholder="请在此输入密码" required pattern="^\w{6,16}$">
+                </div>
+                <div class="label-input">
+                    <label for="tel-4">&#x3000;邮箱验证</label><input type="text" id="tel-4" name="tel-4" placeholder="请输入邮箱" required pattern="^(\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)$">
+                </div>
+                <div class="label-input tel-5">
+                    <label for="tel-5">&#x3000;邮箱验证码</label><input type="text" id="tel-5" name="tel-5" placeholder="请输入邮箱验证码">
+                    <button class="get-code" type="button">获取验证码</button>
+                </div>
+                
+                <button type="submit" id="register-two">立即注册</button>
+            </form>
+        </div>
+        
+    </main>
+    <!-- 页脚 -->
     <footer>
         <ul>
             <li><a href="./login.html">关于我们</a></li>
@@ -65,9 +110,51 @@
             Copyright©2004-2018 京东JD.com 版权所有
         </address>
     </footer>
+
     <script src="./jquery.js"></script>
+    <!-- 拼图滑块验证 -->
+    <script src="./slide_code.js"></script>
     <script>
-           
+        slideCode(".code-btn", function () {
+                if (!checkTel()) {
+                    alert("您输入的手机格式错误");
+                    location.href="./register.html";
+                }else{
+                    $(".code-btn").addClass("form-group");
+                    $(".code-btn").html(
+                    `
+                    <label for="code">  手机验证码</label>
+                    <input type="text" name="code" id="code" placeholder="   输入验证码" required><button class="get-code" type="button">获取证码</button>
+                    `
+                )};
+                var tel = $("[name=tel]").val();
+                $.get("/sendcode", { tel }, function (data) {
+                    // console.log(data);
+                });
+            });
+            function checkTel() {
+                var re = /^1[345789]\d{9}$/;
+                return re.test($("[name=tel]").val());
+            };
+            $(".get-code").click(function(){
+                $.get("/sendcode", { tel }, function (data) {
+                    // console.log(data);
+                });
+        });
+        $("form").submit(function(e){
+            e.preventDefault();
+            var tel = $("[name=tel]").val();
+            if(!/^1[345789]\d{9}$/.test(tel)){
+                alert("您输入的手机格式错误");
+                return;
+            }else{
+                location.href="register2.html"
+            };
+            
+            // $("#part-one").
+        });
+        
     </script>
 </body>
+
 </html>

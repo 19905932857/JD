@@ -1,9 +1,9 @@
-body{
+body html{
     margin: 0;
 }
 /* 头部 */
 header{
-    width: 100%;
+    width: 1519px;
     height: 100px;
     box-shadow: 0 5px 10px gainsboro;
 }
@@ -23,6 +23,9 @@ a{
     text-decoration: none;
     color: red;
 }
+.Account{
+    color: #999;
+}
 .go-login{
     line-height: 150px;
 }
@@ -30,10 +33,17 @@ a{
 .registertext{
     font-size: 30px;
 }
+/* 主体 */
+main{
+    height: 600px;
+}
+
 /* 页脚 */
 footer{
     width: 1210px;
     margin: 0 auto;
+    border-top: 1px solid gainsboro;
+
 }
 footer ul{
     margin: 30px 0;

@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./login.css">
+    <!-- <link rel="stylesheet" href="./css/registerAll.css"> -->
+    <link rel="stylesheet" href="./css/login.css">
     <title>京东-欢迎登入</title>
 </head>
 <body>
@@ -23,19 +24,54 @@
             <div class="login-advertising">
                 <div class="login-form">
                     <div id="header">
-                        <div class="login-tab login-tab-left"><a href="" class="checked">扫码登入</a></div>
-                        <div class="login-tab login-tab-right"><a href="">账户登入</a></div> 
+                        <div class="login-tab login-tab-left"><a href="" >扫码登入</a></div>
+                        <div class="login-tab login-tab-right"><a href="" class="checked">账户登入</a></div> 
                     </div>
-                    
-                    <div class="QR-code">
-                        <img src="./京东-欢迎登录_files/show.png" alt="">
-
+                    <div id="form">
+                        <form action="" method="post">
+                            <input type="text" name="user" placeholder="邮箱/用户名/已验证手机" required pattern="(^1[1234567890]\d{9}$)|(^[a-zA-Z_\u4E00-\u9FA5][a-zA-Z_0-9\u4E00-\u9FA5]{2,8}$)|(\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)">
+                            <input type="password" name="password" placeholder="密码" required pattern="\w{6,16}">
+                            <button type="submit">登&#x3000;&#x3000;入</button>
+                        </form>
+                    </div>
+                    <div id="footer">
+                        <a href="register.html">去注册<div class="go-register-img"></div></a>
                     </div>
                 </div>
                 
             </div>
         </div>
     </main>
-
+    <footer>
+        <ul>
+            <li><a href="./login.html">关于我们</a></li>
+            <li><a href="./login.html">联系我们</a></li>
+            <li><a href="./login.html">人才招聘</a></li>
+            <li><a href="./login.html">商家入驻</a></li>
+            <li><a href="./login.html">广告服务</a></li>
+            <li><a href="./login.html">手机京东</a></li>
+            <li><a href="./login.html">友情链接</a></li>
+            <li><a href="./login.html">销售联盟</a></li>
+            <li><a href="./login.html">京东社区</a></li>
+            <li><a href="./login.html">京东公益</a></li>
+            <li><a href="./login.html">English Site</a></li>
+        </ul>
+        <address>
+            Copyright©2004-2018 京东JD.com 版权所有
+        </address>
+    </footer>
+    <script src="./jquery.js"></script>
+    <script>
+        $("form").submit(function(e){
+            e.preventDefault();
+            $.post("/login",$(this).serialize(),function(data){
+                if(!data.code){
+                    location.href = "index.html";
+                }else{
+                    alert(data.info);
+                }
+            });
+        });
+    </script>
 </body>
 </html>

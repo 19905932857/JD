@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>个人注册</title>
     <link rel="stylesheet" href="./css/registerAll.css">
+    <link rel="stylesheet" href="./css/register2.css">
 </head>
 
 <body>
@@ -18,9 +19,46 @@
                 </a>
                 <span class="registertext">欢迎注册</span>
             </div>
-            <div class="go-login"><span class="Account">已有账号?</span><a href="login.html"><span>去登入&gt;</span></a></div>
+            <div class="go-login"><span class="Account">已有账号? </span><a href="login.html"><span> 去登入&gt;</span></a></div>
         </section>
     </header>
+    <main>
+        <div id="register-form">
+            <div id="flow-path">
+                <div class="step-one1">1</div>
+                <div class="next-step2"></div>
+                <div class="step-tow2">2</div>
+                <div class="next-step-tow1 next-step-tow2"></div>
+                <div class="step-three3">3</div>
+            </div>
+            <div id="flow-path-text">
+                <span class="step-one-text">验证手机号</span>
+                <span class="step-tow-text">填写账号信息</span>
+                <span class="step-three-text">注册成功</span>
+            </div>
+            <form method="post" action="" role="form" class="register-form">
+                <div class="label-input">
+                    <label for="tel">&#x3000;用户名<input type="text" id="tel" name="user" placeholder="您的账户名和登入名" required pattern="(^1[1234567890]\d{9}$)|(^[a-zA-Z_\u4E00-\u9FA5][a-zA-Z_0-9\u4E00-\u9FA5]{2,8}$)"></label>
+                </div>
+                <div class="label-input">
+                    <label for="tel-2">&#x3000;设置密码</label><input type="password" id="tel-2" name="password" placeholder="建议使用两种或两种以上字符组合" required >
+                </div>
+                <div class="label-input">
+                    <label for="tel-3">&#x3000;确认密码</label><input type="password" id="tel-3" name="password2" placeholder="请在此输入密码" required >
+                </div>
+                <div class="label-input">
+                    <label for="tel-4">&#x3000;邮箱验证</label><input type="text" id="tel-4" name="mailbox" placeholder="请输入邮箱" required pattern="^(\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)$">
+                </div>
+                <div class="label-input tel-5">
+                    <label for="tel-5">&#x3000;邮箱验证码</label><input type="text" id="tel-5" name="code" placeholder="请输入邮箱验证码" required pattern="^\d{4,6}$">
+                    <button class="tel-5-get-code" type="button">获取验证码</button>
+                </div>
+                
+                <button type="submit" id="register">立即注册</button>
+            </form>
+        </div>
+        
+    </main>
     <footer>
             <ul>
                 <li><a href="./login.html">关于我们</a></li>
@@ -39,6 +77,26 @@
                 Copyright©2004-2018 京东JD.com 版权所有
             </address>
         </footer>
+        <script src="./jquery.js"></script>
+        <script>
+            $("form").submit(function(e){
+                e.preventDefault();
+                if($("[name=tel-2]").val() != $("[name=tel-3]").val()){
+                    alert("两次密码输入不一致,请重新输入");
+                    return;
+                }
+                $.post("/register2",$(this).serialize(),function(data){
+                    // alert("注册成功");
+                    // console.log(1111);
+                    if(!data.code){
+                        // console.log(111);
+                        location.href = "login.html";
+                    }else{
+                        alert("注册失败,该用户已存在");
+                    }
+                });
+            });
+        </script>
 </body>
 
 </html>
